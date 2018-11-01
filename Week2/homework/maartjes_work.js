@@ -45,3 +45,27 @@ const tuesday = [
 const tasks = monday.concat(tuesday);
 
 // Add your code here
+
+//mapping the minutes to hours
+const hoursWorked = tasks.map(minutes => minutes.duration/60);
+
+//filtering out less than 2 hours from worked hours 
+const acceptableHours = hoursWorked.filter(val => {
+    if(val>=2) return val;
+}
+);
+
+//Multiplying with per hour rate
+const perHourWage = acceptableHours.map(x => x*25);
+
+//Total payment
+const accPayment = perHourWage.reduce((acc, currValue)=>{
+return acc+currValue;
+},0);
+
+
+console.log(hoursWorked);
+console.log(acceptableHours);
+console.log(perHourWage);
+console.log(accPayment);
+console.log("Net payment is: " + "€ " + accPayment.toFixed(2));
