@@ -2,9 +2,11 @@
 
 const values = ['a', 'b', 'c', 'd', 'a', 'e', 'f', 'c'];
 
-// Add your function here. Try and come up with a good name for this function
+/*we iterate over the array and, for each element, check if the first position of this element in the array 
+is equal to the current position. Obviously, these two positions are different for duplicate elements.*/
 
-// Replace `yourFunction` with the name of the function you just created
-const uniqueValues = yourFunction(values);
+const uniqueArray = values.filter(function(item, pos) {
+    return values.indexOf(item) == pos;
+})
 
-console.log(uniqueValues);
+console.log(uniqueArray);
